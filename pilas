@@ -1,0 +1,85 @@
+int limite, tope, vec[];
+    
+    public Pilas (int n){
+        
+        this.limite= n-1;
+        this.tope=-1;
+        this.vec = new int [n];
+       
+    }
+
+    public int getLimite() {
+        return limite;
+    }
+
+    public void setLimite(int limite) {
+        this.limite = limite;
+    }
+
+    public int getTope() {
+        return tope;
+    }
+
+    public void setTope(int tope) {
+        this.tope = tope;
+    }
+
+    public int[] getVec() {
+        return vec;
+    }
+
+    public void setVec(int[] vec) {
+        this.vec = vec;
+    }
+    
+    public boolean PilaVacia(){
+        
+        if (tope==-1)
+            return true;
+        return false;
+    
+    }
+   
+    public boolean PilaLlena(){
+        
+        boolean B= false;
+        
+        if (tope==limite)
+            B= true;
+        
+        return B;
+    }
+    
+    void Apilar (int d){
+        
+        tope ++;
+        vec[tope]=d;
+        
+    }
+    
+    public int Desapilar(){
+        int aux = vec [tope];
+        tope--;
+        return aux;
+    }
+    
+    public void Pasar(Pilas PA){
+        
+        while (!PA.PilaVacia())
+            
+            Apilar(PA.Desapilar());
+    }
+    
+    public void Mostrar(){
+        Pilas PA = new Pilas(limite + 1);
+        int aux = 0;
+        String s = "";
+        
+        while (!this.PilaVacia()){
+            
+            aux = this.Desapilar();
+            s = s+"|" + aux + "\n ___ \n" + "|";
+            
+                    
+        }
+    }

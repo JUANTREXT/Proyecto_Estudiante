@@ -1,0 +1,86 @@
+package Estudiante;
+
+import javax.swing.JOptionPane;
+
+
+public class Colalista {
+    Nodo punta;
+    int Tope;
+    
+    public Colalista (){
+        punta = null;
+        Tope = 0;
+    }
+
+    public Nodo getPunta() {
+        return punta;
+    }
+
+    public void setPunta(Nodo punta) {
+        this.punta = punta;
+    }
+
+    public int getTope() {
+        return Tope;
+    }
+
+    public void setTope(int Tope) {
+        this.Tope = Tope;
+    }
+
+    public void InsertarFinal (long ced, String nom, String ape, String carr, Pila p1,float prom){
+        
+        Nodo p, x = new Nodo(ced,nom,ape,carr,p1,prom);
+        
+        if (punta==null){
+            punta = x;
+        } else {
+            p=punta;
+            
+            while (p.getLiga() != null){
+                p = p.getLiga();
+            }
+             p.setLiga (x);
+        }
+    
+    }
+    public void ordenarAscendentemente (){
+            Nodo p = punta,q = p.getLiga();
+            Nodo Aux;
+            if (punta == null){
+                JOptionPane.showMessageDialog(null, "la lista no se puede ordenar ya que esta vacia.");
+            }
+            else {
+                while (p.getLiga() != null){
+                    while (q != null){
+                        if (p.getCed() < q.getCed()){
+                         Aux = q.getLiga();
+                         q.setLiga(p.getLiga());
+                         p.setLiga(Aux);
+                        }
+                        q = q.getLiga();
+                    }
+                    p = p.getLiga();
+                }
+            }
+                JOptionPane.showMessageDialog(null, "la lista ha sido ordenada exitosamente.");
+    } 
+
+    public void MostrarLista (){
+        Nodo p = punta;
+        String s ="";
+        
+        for (int i=0;p != null;i++){
+            s= s + "\n\nNombre: "+p.getNom()+"\nApellido: "+p.getApe()+"\nCedula: "+p.getCed()+"\nPromedio del semestre: "+p.getProm();
+            p= p.getLiga();
+        }
+    JOptionPane.showMessageDialog(null,s);
+    }
+    public void CambiarNota (Pila m){
+        Pila pe = new Pila(4);
+        pe.Reemplazar(m);
+
+    
+    } 
+
+}

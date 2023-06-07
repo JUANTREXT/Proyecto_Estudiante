@@ -1,0 +1,78 @@
+public class Nodo {
+   
+    private long ced;
+    private String nom,ape,carr;
+    private Pila Materias = new Pila (4);
+    private Nodo liga;
+    private float prom;
+    
+    //metodos
+
+    public Nodo(long ced, String nom, String ape, String carr, Pila Materias,float prom) {
+        this.ced = ced;
+        this.nom = nom;
+        this.ape = ape;
+        this.carr = carr;
+        this.Materias = Materias;
+        this.prom = prom;
+        this.liga = null;
+    } 
+
+    public long getCed() {
+        return ced;
+    }
+
+    public void setCed(long ced) {
+        this.ced = ced;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getApe() {
+        return ape;
+    }
+
+    public void setApe(String ape) {
+        this.ape = ape;
+    }
+
+    public String getCarr() {
+        return carr;
+    }
+
+    public void setCarr(String carr) {
+        this.carr = carr;
+    }
+
+    public Pila getMaterias() {
+        return Materias;
+    }
+
+    public void setMaterias(Pila Materias) {
+        this.Materias = Materias;
+    }
+
+    public Nodo getLiga() {
+        return liga;
+    }
+
+    public void setLiga(Nodo liga) {
+        this.liga = liga;
+    }
+
+    public float getProm() {
+        return prom;
+    }
+
+    public void setProm(float prom) {
+        this.prom = prom;
+    }
+    
+    
+}
