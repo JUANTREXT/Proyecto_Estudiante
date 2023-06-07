@@ -83,3 +83,12 @@ int limite, tope, vec[];
                     
         }
     }
+    
+    public float Promedio(){
+        float prom=0;
+        while(tope > -1){
+            prom+=vec[tope];
+            tope--;
+        }
+        return prom / 4;   
+    }
