@@ -1,118 +1,45 @@
 package Estudiante;
 
-import java.text.DecimalFormat;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
-public class ProyectoEstudiantes {
-
-
+public class MenuTemplate {
     public static void main(String[] args) {
-        int opc,i=0;
-        long c,bu;
-        String n,a,ca;
-        float hu,le,ma,de,prom;
-        boolean ban = false,ban2 = false;
-     //   int tam = Integer.parseInt(JOptionPane.showInputDialog("Ingresar cantidad de estudiantes: "));
-     //   Colalista Est= new Colalista (tam); 
-        Colalista Est= new Colalista ();
-        do {
-            opc = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu:\n\n1. Agregar Estudiante.\n2. Ordenar Ascendentemente por cedula.\n3. Informe de Notas.\n4. Modificar Datos de Estudiantes.\n5. Salir."));
-            
-            switch (opc){
-                case 1:
-                    Pila m = new Pila(4); 
-                    //DecimalFormat prom=new DecimalFormat("#");
-                 //   if (i<tam){
-                      
-                    c = Integer.parseInt(JOptionPane.showInputDialog("Numero de cedula: "));
-                    n = JOptionPane.showInputDialog("Nombre: ");
-                    a = JOptionPane.showInputDialog("Apellido: ");
-                    ca = JOptionPane.showInputDialog("Carrera: ");
-                    hu = Float.parseFloat(JOptionPane.showInputDialog("Nota definitiva de Humanidades: "));
-                    m.Apilar(hu);
-                    le = Float.parseFloat(JOptionPane.showInputDialog("Nota definitiva de Lengua Materna: "));
-                    m.Apilar(le);
-                    ma = Float.parseFloat(JOptionPane.showInputDialog("Nota definitiva de Matematicas: "));
-                    m.Apilar(ma);
-                    de = Float.parseFloat(JOptionPane.showInputDialog("Nota definitiva de Deportes: "));
-                    m.Apilar(de);
-                    m.OrdenarAsc();
-                    prom=m.Promedio();
-                    Est.InsertarFinal(c, n, a, ca, m,prom);
-                    i++;
-               //     }
-                //    else {
-                 //       JOptionPane.showMessageDialog(null, "No se puede Agregar estudiante, la lista esta llena.");
-                //    }
-                    break;
-                case 2:
-                    Est.ordenarAscendentemente();
-                    Est.MostrarLista();
-                    break;
-                case 3:
-                    Est.MostrarLista();
-                    break;
-                case 4:
-                    bu = Integer.parseInt(JOptionPane.showInputDialog("Numero de cedula del estudiante a modificar: "));
-                    Nodo p = Est.getPunta();
-                    int opc2;
-                    String d;
-                    long q;
-                    float r;
-         while (p!=null && ban==false && ban2==false){
-            if (p.getCed()==bu){
-                JOptionPane.showMessageDialog(null, "Estudiante encontrado");
-            do{ 
-                opc2 = Integer.parseInt(JOptionPane.showInputDialog(null, "Que deseas modificar?\n\n1. Cedula\n2. Nombre.\n3. Apellido.\n4. Carrera.\n5. Notas.\n6. Salir."));
-            
-            switch (opc2){
-                case 1:
-                    q = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese la cedula que desea reemplazar: "));
-                    p.setCed(q);
-                    break;
-                case 2:
-                    d = JOptionPane.showInputDialog(null,"Ingrese el nombre que desea reemplazar: ");
-                    p.setNom(d);
-                    break;
-                case 3:
-                    d = JOptionPane.showInputDialog(null,"Ingrese el apellido que desea reemplazar: ");
-                    p.setApe(d);
-                    break;
-                case 4:
-                    d = JOptionPane.showInputDialog(null,"Ingrese la carrera que desea reemplazar: ");
-                    p.setCarr(d);
-                    break;
-                case 5:
-                    Est.CambiarNota(p.getMaterias());  
-                    break;
-                case 6:
-                    JOptionPane.showMessageDialog(null,"Datos modificados con exito");
-                    break;
-                    
-                default:
-                    JOptionPane.showMessageDialog(null,"Opcion incorrecta");
-                    
-            } 
-             } while (opc2 != 6);
-            ban2=true;
-            }
-            
-            else {
-                JOptionPane.showMessageDialog(null,"El estudiante no esta en esta lista");
-                ban=true;
-            }
-         }
-                   break;
-                case 5:
-                    JOptionPane.showMessageDialog(null,"Has salido del programa");
-                    break;
-                    
-                    default:
-                    JOptionPane.showMessageDialog(null,"Opcion incorrecta");
-            
-        }
-            }while (opc != 5);
-    }
-    
-}
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
 
+        do {
+            System.out.println("MENU");
+            System.out.println("1. Opción 1");
+            System.out.println("2. Opción 2");
+            System.out.println("3. Opción 3");
+            System.out.println("4. Salir");
+            System.out.print("Ingrese una opción: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Ha seleccionado la opción 1.");
+                    // Agrega aquí la lógica para la opción 1
+                    break;
+                case 2:
+                    System.out.println("Ha seleccionado la opción 2.");
+                    // Agrega aquí la lógica para la opción 2
+                    break;
+                case 3:
+                    System.out.println("Ha seleccionado la opción 3.");
+                    // Agrega aquí la lógica para la opción 3
+                    break;
+                case 4:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción inválida. Por favor, ingrese una opción válida.");
+                    break;
+            }
+
+            System.out.println();
+        } while (opcion != 4);
+
+        scanner.close();
+    }
+}

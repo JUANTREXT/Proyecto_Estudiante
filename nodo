@@ -1,4 +1,4 @@
-public class Nodo {
+public class nodo {
    
     private long ced;
     private String nom,ape,carr;
@@ -6,7 +6,6 @@ public class Nodo {
     private Nodo liga;
     private float prom;
     
-    //metodos
 
     public Nodo(long ced, String nom, String ape, String carr, Pila Materias,float prom) {
         this.ced = ced;
@@ -73,6 +72,5 @@ public class Nodo {
     public void setProm(float prom) {
         this.prom = prom;
     }
-    
-    
+        
 }

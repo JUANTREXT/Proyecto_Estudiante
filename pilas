@@ -92,3 +92,46 @@ int limite, tope, vec[];
         }
         return prom / 4;   
     }
+
+public int Busqueda() {
+    
+    public static boolean buscarElementoEnPila(Stack<Integer> pila, int elemento) {
+        Stack<Integer> PA = new Stack<>();
+        
+        while (!p1.isEmpty()) {
+            int valor = p1.pop();
+            if (valor == elemento) {
+                // El elemento ha sido encontrado
+                return true;
+            } else {
+                PA.push(valor);
+            }
+        }
+        
+        // Restaurar la pila original
+        while (!PA.isEmpty()) {
+            pila.push(PA.pop());
+        }
+        
+        // El elemento no ha sido encontrado
+        return false;
+    }
+    
+    public static void main(String[] args) {
+        Stack<Integer> pila = new Stack<>();
+        
+        pila.push(3);
+        pila.push(7);
+        pila.push(1);
+        pila.push(9);
+        
+        int elemento = 7;
+        boolean encontrado = buscarElementoEnPila(pila, elemento);
+        
+        if (encontrado) {
+            System.out.println("El elemento " + elemento + " ha sido encontrado en la pila.");
+        } else {
+            System.out.println("El elemento " + elemento + " no ha sido encontrado en la pila.");
+        }
+    }
+}
